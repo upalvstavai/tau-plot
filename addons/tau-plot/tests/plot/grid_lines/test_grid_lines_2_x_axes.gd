@@ -55,7 +55,7 @@ func _setup_test_1() -> void:
 
 	var dataset := TauPlot.Dataset.make_per_series_x_continuous(series_names, [x_a, x_b], [y_a, y_b])
 
-	%TestPlot1.title = "Use BOTTOM x-axis"
+	%TestPlot1.title = "Use BOTTOM x-axis; secondary axis inverted"
 
 	var x_axis := TauAxisConfig.new()
 	x_axis.title = "CELSIUS (°C)"
@@ -65,6 +65,7 @@ func _setup_test_1() -> void:
 
 	var x2_axis := TauAxisConfig.new()
 	x2_axis.title = "FAHRENHEIT (°F)"
+	x2_axis.inverted = true
 	x2_axis.type = TauAxisConfig.Type.CONTINUOUS
 	x2_axis.scale = TauAxisConfig.Scale.LINEAR
 	x2_axis.tick_count_preferred = 32

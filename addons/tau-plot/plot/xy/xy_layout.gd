@@ -516,10 +516,13 @@ class XYLayout extends RefCounted:
 				x_origin, x_extent, x_flip, x_origin)
 
 			if p_has_secondary_x:
+				var secondary_x_flip: bool = (
+					(not _x_is_horizontal) != domain.config.secondary_x_axis.inverted
+				)
 				pane_layout.secondary_x_mapping = AxisMapping.new(
 					_secondary_x_domain_min, _secondary_x_domain_max,
 					domain.config.secondary_x_axis.scale == TauAxisConfig.Scale.LOGARITHMIC,
-					x_origin, x_extent, not _x_is_horizontal, x_origin)
+					x_origin, x_extent, secondary_x_flip, x_origin)
 
 			for y_axis_id in p_y_axes:
 				var y_axis_domain := _get_y_axis_domain(i, y_axis_id)
